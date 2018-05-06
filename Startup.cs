@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using WebApi.Models;
 
 namespace WebApi
 {
@@ -8,6 +9,7 @@ namespace WebApi
   {
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddDbContext<FighterContext>(options => options.UseInMemoryDatabase("WebApi"));
       services.AddMvc();
     }
 
